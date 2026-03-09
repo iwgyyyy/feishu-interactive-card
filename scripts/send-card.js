@@ -11,7 +11,7 @@ function loadFeishuConfig() {
     if (fs.existsSync(configPath)) {
       const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
       
-      const feishuConfig = config.channels?.feishu?.accounts?.main;
+      const feishuConfig = config.channels?.feishu?.accounts?.main || config.channels?.feishu;
       if (feishuConfig) {
         return {
           appId: feishuConfig.appId,
